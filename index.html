@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Tanaz!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fffaf0;
+      overflow: hidden;
+    }
+    .page {
+      display: none;
+      height: 100vh;
+      width: 100vw;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .active {
+      display: flex;
+    }
+    .button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #ff69b4;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .gift-box {
+      width: 200px;
+      height: 200px;
+      background: url('https://cdn-icons-png.flaticon.com/512/2463/2463510.png') no-repeat center/contain;
+      cursor: pointer;
+    }
+    .gift-image {
+      display: none;
+      max-width: 80%;
+      height: auto;
+      margin-top: 20px;
+      border: 4px solid #ff69b4;
+      border-radius: 10px;
+    }
+    .timer {
+      font-size: 24px;
+      color: #444;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page active" id="page1">
+    <div class="timer" id="timer">5</div>
+    <h1 style="color: #ff69b4; text-align: center;">🎉 Happy Birthday Dr. Shaik Tanaz! 🎉</h1>
+    <p style="text-align: center; font-size: 18px;">Wishing you a day full of joy, light, and love! 🎂✨</p>
+  </div>  <div class="page" id="page2">
+    <p style="max-width: 600px; text-align: center; font-size: 18px;">
+      May Allah bless you with endless happiness, success, and make your dream of becoming a doctor come true, Ameen. <br>
+      There are only a few truly important people in my life—and <strong>you</strong> are one of them. <br>
+      No matter what life brings—whether it’s joy or sorrow—I will always be there by your side. <br>
+      Once again, I wish you all the best for your future. <br>
+      And… Happy Birthday again! 💖 <br>
+      — From Sufiyan.
+    </p>
+    <button class="button" onclick="showPage(3)">Next</button>
+  </div>  <div class="page" id="page3">
+    <div class="gift-box" onclick="openGift()"></div>
+    <img src="https://cdn-icons-png.flaticon.com/512/3468/3468081.png" alt="Gift Image" class="gift-image" id="giftImage" />
+    <button class="button" style="display: none;" id="giftNextBtn" onclick="showPage(4)">Next</button>
+  </div>  <div class="page" id="page4">
+    <p style="max-width: 600px; text-align: center; font-size: 18px;">
+      I will give it to you when I come back to Nandyal in the holidays 💝
+    </p>
+  </div>  <script>
+    let timer = 5;
+    const timerElement = document.getElementById("timer");
+    const page1 = document.getElementById("page1");
+
+    const countdown = setInterval(() => {
+      timer--;
+      timerElement.textContent = timer;
+      if (timer === 0) {
+        clearInterval(countdown);
+        showPage(2);
+      }
+    }, 1000);
+
+    function showPage(pageNumber) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(`page${pageNumber}`).classList.add('active');
+    }
+
+    function openGift() {
+      document.querySelector('.gift-box').style.display = 'none';
+      document.getElementById('giftImage').style.display = 'block';
+      document.getElementById('giftNextBtn').style.display = 'inline-block';
+    }
+  </script></body>
+</html>
